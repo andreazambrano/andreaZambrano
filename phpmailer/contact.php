@@ -11,7 +11,7 @@ $mail->SMTPAuth = true;                               // Enable SMTP authenticat
 $mail->Username = 'developer@thetixs.com';                      // SMTP username
 $mail->Password = 'uoW9developer';                           // SMTP password
 $mail->SMTPSecure = 'ssl';  //TLS                       // Enable TLS encryption, `ssl` also accepted
-$mail->Port = 587;          //587                          // TCP port to connect to
+$mail->Port = 465;          //587                          // TCP port to connect to
 
 
 //echo $email= $_POST['n2']."@".$_POST['n3'];
@@ -29,46 +29,30 @@ $mail->isHTML(true);                                  // Set email format to HTM
 $mail->Subject = 'Contacto CV AndreaZambrano';
 $mail->Body    = 
    
-    '<div align="center" style="background-color:#fff;">
+    '<div align="center" style="background-color:#f6f8f8;">
         <div align="center" style="display:inline-block;
                                   height:auto;
                                   width:100%;">
-          <div style="
-             background-color:#26a69a;
-             display:inline-block;
-             width:100%;
-             height:auto;
-             text-align:center;
-             color:#fff;
-             align-content:center;
-             ">
-            <div align="center" style="padding:10px;" >
-              <href="http://andreazambrano.com.ve">
-            </div>
-          </div>
-          <div style="color:#26a69a; padding:8px;" align="center">
-          <p align="center">Hola Andrea Zambrano, 
-            te han contactado desde tu pagina personal</p>
-            </div>
+          
 
-          <div style="color:#26a69a; padding:20px;" align="left">
+          <div style="color:#e44c2a; padding:20px;" align="left">
             <br/>
            <b>'.$_POST['name'].'</b>, 
                     
           </div>
           
-          <div style="color:#26a69a; padding:20px;" align="left">
+          <div style="color:#e44c2a; padding:20px;" align="left">
             <br/>
            <b>'.$_POST['email'].'</b>, 
                     
           </div>
 
-          <div style="color:#26a69a; padding:20px;" align="left">
+          <div style="color:#e44c2a; padding:20px;" align="left">
             <br/>
            <b>'.$_POST['phone'].'</b>,                     
           </div>
 
-          <div style="color:#26a69a; padding:20px;" align="left">
+          <div style="color:#e44c2a; padding:20px;" align="left">
             <br/>
            <b>'.$_POST['message'].'</b>,                     
           </div>
@@ -86,11 +70,10 @@ $mail->Body    =
 // $mail->AltBody = 'Hello';
 
 if(!$mail->send()) {
-    echo 'No se pudo enviar el Mensaje.';
-    echo 'Mensaje enviado: ' . $mail->send;
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
 }
 else {
-
-// header('location: thankyou.php');
+    header('location: thankyou.php');
 }
 ?>
